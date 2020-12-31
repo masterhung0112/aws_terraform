@@ -1,0 +1,4 @@
+resource "aws_codecommit_repository" "cloudpatterns" {
+    repository_name = "cloudpatternsrepo"
+    description = "This is a demonstration repository for the AWS Cloud Patterns book."
+}

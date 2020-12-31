@@ -1,0 +1,6 @@
+resource "aws_cloud9_environment_ec2" "cloudpatterns" { 
+    instance_type = "t2.micro"
+    name = "example-env"
+    automatic_stop_time_minutes = "5"
+    description = "My Cloud Patterns Environment" 
+}
