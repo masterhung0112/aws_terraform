@@ -1,0 +1,7 @@
+resource "aws_route53_record" "wwwltm" {
+  zone_id = aws_route53_route.hungknowtk.zone_id
+  name = "hungknow.tk"
+  type = "cname"
+  ttl = "300"
+  records = [ aws_elb.cloudlb.dns_name ]
+}
