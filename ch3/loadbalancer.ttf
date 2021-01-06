@@ -1,6 +1,6 @@
 resource "aws_elb" "cloudelb" {
   name = "hungknow-elb"
-  availability_zones = ["us-east-1c"]
+  //availability_zones = ["us-east-1c"]
 
   listener {
     instance_port     = 80
