@@ -20,6 +20,7 @@ resource "aws_subnet" "chp4_west" {
   }
 }
 
+# Elastic IP
 resource "aws_eip" "chp4_west" {
   provider = aws.west
   instance = aws_instance.chp4_west.id
