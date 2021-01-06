@@ -2,6 +2,7 @@ resource "aws_instance" "chp4_west" {
   ami = "ami-0433594864f028d1a"
   provider = aws.west
   instance_type = "t2.micro"
+  # availability_zone = "us-west-2c"
   subnet_id = aws_subnet.chp4_west.id
   vpc_security_group_ids = [aws_default_security_group.chp4_west.id]
 

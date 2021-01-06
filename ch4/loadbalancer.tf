@@ -1,6 +1,7 @@
 resource "aws_elb" "chp4_west" {
-  name = "chp4_west"
-  security_groups = ["default"]
+  provider = aws.west
+  subnets = [ aws_subnet.chp4_west.id ]
+  security_groups = [aws_default_security_group.chp4_west.id]
 
   listener {
     instance_port     = 80
@@ -17,9 +18,13 @@ resource "aws_elb" "chp4_west" {
     interval            = 30
   }
 
-  instances                   = ["${aws_instance.ch4_west.id}"]
+  instances                   = [aws_instance.chp4_west.id]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
   connection_draining_timeout = 400
+
+  tags = {
+    Name = "chp4_west"
+  }
 }

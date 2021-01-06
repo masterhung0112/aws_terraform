@@ -1,4 +1,4 @@
-resource "aws_default_security_group" "mainvpc_west" {
+resource "aws_default_security_group" "chp4_west" {
   vpc_id = aws_vpc.chp4_west.id
   provider = aws.west
   
@@ -35,5 +35,9 @@ resource "aws_default_security_group" "mainvpc_west" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "chp4_west"
   }
 }

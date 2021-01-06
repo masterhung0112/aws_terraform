@@ -1,5 +1,7 @@
 resource "aws_network_acl" "chp4_west" { 
-    vpc_id = "${aws_vpc.chp4_west.id}"
+    vpc_id = aws_vpc.chp4_west.id
+    provider = aws.west
+
     egress {
         protocol = "tcp"
         rule_no = 200
@@ -16,7 +18,7 @@ resource "aws_network_acl" "chp4_west" {
         from_port = 80
         to_port = 80
     }
-    tags {
+    tags = {
         Name = "chp4_west"
-    } 
+    }
 }
